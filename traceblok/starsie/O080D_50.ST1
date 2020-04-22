@@ -1,0 +1,173 @@
+H: SvtPic:  1
+V: 7.6
+N:  2
+@Parameter Trace: 17
+P 100:  5
+P 101:  6331
+P 102: C1
+P 103:  26
+P 104:  2
+P 105:  0
+P 106:  0
+P 107:  0
+P 108:  135.664
+P 109: -137.842
+P 110: A
+P 111:  0
+P 112:  0
+P 113:  50
+P 114:  0
+P 115: ms
+P 117: 1
+P 118:  5326
+P 119:  2125
+P 121:  53
+P 122:  6774
+P 123:  6
+P 124:  4
+P 125:  1
+@Dynamic Part for Bitgraphic
+P 126: ReadUserData=TRUE;
+P 127: BitName=SBH/SG-Abwahl NCK                     
+P 128: TraceNo=1;
+P 129: SigIdx=62;
+P 130: BitNo=0;
+P 131: ListIndex=0;
+P 132: BitName=Impulse gelöscht NCK                  
+P 133: TraceNo=1;
+P 134: SigIdx=62;
+P 135: BitNo=2;
+P 136: ListIndex=2;
+P 137: BitName=SG-Auswahl Bit 0 NCK                  
+P 138: TraceNo=1;
+P 139: SigIdx=62;
+P 140: BitNo=3;
+P 141: ListIndex=3;
+P 142: BitName=SBH/SG-Abwahl Antrieb                 
+P 143: TraceNo=2;
+P 144: SigIdx=64;
+P 145: BitNo=0;
+P 146: ListIndex=0;
+P 147: BitName=Abwahl ext. Stop D Antrieb            
+P 148: TraceNo=2;
+P 149: SigIdx=64;
+P 150: BitNo=20;
+P 151: ListIndex=11;
+P 152: BitName=SN 1+ NCK                             
+P 153: TraceNo=3;
+P 154: SigIdx=63;
+P 155: BitNo=8;
+P 156: ListIndex=3;
+P 157: BitName=SN 2+ NCK                             
+P 158: TraceNo=3;
+P 159: SigIdx=63;
+P 160: BitNo=10;
+P 161: ListIndex=5;
+P 162: BitName=SN 3- NCK                             
+P 163: TraceNo=3;
+P 164: SigIdx=63;
+P 165: BitNo=13;
+P 166: ListIndex=8;
+P 167: BitName=Stop D ist aktiv Antrieb              
+P 168: TraceNo=4;
+P 169: SigIdx=65;
+P 170: BitNo=30;
+P 171: ListIndex=17;
+P 172: BitName=Impulse sind gelöscht Antrieb         
+P 173: TraceNo=4;
+P 174: SigIdx=65;
+P 175: BitNo=2;
+P 176: ListIndex=1;
+P 800:  0
+P 801: 
+P 802:  0
+P 803:  0
+P 804:  0
+P 805:  0
+@Parameter Trace: 18
+P 200:  5
+P 201:  6331
+P 202: C1
+P 203:  26
+P 204:  2
+P 205:  0
+P 206:  0
+P 207:  0
+P 208:  27720
+P 209: -21230
+P 210: W
+P 211:  0
+P 212:  0
+P 213:  50
+P 214:  0
+P 215: ms
+P 217: 1
+P 218:  6385
+P 219:  2125
+P 221:  51
+P 222:  6788
+P 223:  5
+P 224:  4
+P 225:  1
+@Dynamic Part for Bitgraphic
+P 226: ReadUserData=FALSE;
+P 800:  0
+P 801: 
+P 802:  0
+P 803:  0
+P 804:  0
+P 805:  0
+@Messwerte Trace: 17
+M 10001:  .381
+M 10002:  .342
+M 10003:  .332
+M 10004:  .312
+M 10005:  .293
+M 10006:  .322
+M 10007:  .342
+M 10008:  .303
+M 10009:  .283
+M 10010:  .361
+M 10011:  .342
+M 10012:  .4
+M 10013:  .342
+M 10014:  .312
+M 10015:  .41
+M 10016:  .449
+M 10017:  .469
+M 10018:  .342
+M 10019:  .254
+M 10020:  .146
+M 10021: -.01
+M 10022: -.176
+M 10023: -.293
+M 10024: -.361
+M 10025: -.391
+M 10026: -.264
+@Messwerte Trace: 18
+M 20001:  0
+M 20002:  0
+M 20003:  0
+M 20004:  0
+M 20005:  0
+M 20006: -10
+M 20007:  0
+M 20008:  0
+M 20009: -10
+M 20010:  0
+M 20011:  0
+M 20012:  0
+M 20013:  0
+M 20014:  0
+M 20015: -10
+M 20016:  0
+M 20017:  0
+M 20018:  0
+M 20019:  0
+M 20020:  0
+M 20021:  0
+M 20022:  0
+M 20023:  0
+M 20024:  0
+M 20025:  0
+M 20026:  0

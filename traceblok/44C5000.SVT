@@ -1,0 +1,35 @@
+H: SvtPar
+V: 5.0
+@Messung
+P 1:  5
+P 2:  5
+P 3:  2
+P 4:  3
+P 5:  51
+P 6:  53
+P 7: -1
+P 8: -1
+@Parameter
+P 10: 4000
+P 11: 0
+P 12:  .001
+P 13: 0
+P 14:  .5
+@Parameter Physikalishe Adresse
+P 100: 00000000
+P 101: 0000
+P 102: 0000
+P 103: 0000
+P 104: FFFFFFFF
+P 201: 0000
+P 202: 0000
+P 203: 0000
+P 204: FFFFFFFF
+P 301: 0000
+P 302: 0000
+P 303: 0000
+P 304: FFFFFFFF
+P 401: 0000
+P 402: 0000
+P 403: 0000
+P 404: FFFFFFFF
