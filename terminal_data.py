@@ -32,11 +32,11 @@ Ppostrannych=[]
 
 datam=[]
 
-spodna_frekvencia=500
-vrchna_frekvencia=60
-spodna_frekvencia2=-1
-vrchna_frekvencia2=-1
-okrem_frekvencie=[50,100]
+#spodna_frekvencia=500
+#vrchna_frekvencia=60
+#spodna_frekvencia2=-1
+#vrchna_frekvencia2=-1
+#okrem_frekvencie=[50,100]
 
 
 new_cols = ['timestamp'] + ['name'] + ['hadzanie'] + ['value_' + str(i) for i in range(1, 1001)] #stlpce do pandas
@@ -71,29 +71,30 @@ for filename in glob.glob(os.path.join('traceblok/', '*.ST1')): #načíta všetk
                 y=y/norm
                 y = list(map(str, y))
                 y.insert(0, "dnes")
-                y.insert(0, nazov)
-                y.insert(0, str(z))
-                df2.loc[df2_length] = y
+                y.insert(1, nazov)
+                y.insert(2, str(z))
+                df2.loc[len(df2)] = y
                 
                 
                 #g=[x for ind, x in enumerate(y) if ((spodna_frekvencia*4/3*otacky > ind  > vrchna_frekvencia*4/3*otacky) and (spodna_frekvencia2*4/3*otacky > ind or ind > vrchna_frekvencia2*4/3*otacky))]
                 #Ppostrannych.append(sum(g))
                 
 
-fig, ax = plt.subplots()
-ind = np.arange(len(Ppostrannych))
-width = 0.25
-plt.bar(l_z, Ppostrannych, width, bottom=0)
+#fig, ax = plt.subplots()
+#ind = np.arange(len(Ppostrannych))
+#width = 0.25
+#plt.bar(l_z, Ppostrannych, width, bottom=0)
 #plt.bar(ind + width, data2, width, bottom=0)
 #plt.bar(ind + 2*width, data3, width, bottom=0)
 
-ax.set_title('Prúd v určitom spektre v závislosti hádzania 3000 otáčok')
+#ax.set_title('Prúd v určitom spektre v závislosti hádzania 3000 otáčok')
 #ax.set_xticks(ind + width / 2)
 #ax.set_xticklabels([x[:3] for x in datam])
 
 #ax.legend((p1[0], p2[0], p3[0]), ('3000', '5000',"8000"))
-ax.autoscale_view()
-mplcursors.cursor(hover=True).connect("add", lambda sel: sel.annotation.set_text(datam[sel.target.index]))
-plt.show()
+#ax.autoscale_view()
+#mplcursors.cursor(hover=True).connect("add", lambda sel: sel.annotation.set_text(datam[sel.target.index]))
+#plt.show()
+df2.to_csv ('kia40_dataframe.csv', index = False, header=True)
 
-print (df2)
+print(df2)
