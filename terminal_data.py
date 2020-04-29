@@ -42,13 +42,13 @@ datam=[]
 new_cols = ['timestamp'] + ['name'] + ['hadzanie'] + ['value_' + str(i) for i in range(1, 1001)] #stlpce do pandas
 df2 = pd.DataFrame(columns = new_cols) 
 df2_length = len(df2)
-for filename in glob.glob(os.path.join('traceblok/', '*.ST1')): #načíta všetky súbory zo zložky traceblok
+for filename in glob.glob(os.path.join('traceblok2/', '*.ST1')): #načíta všetky súbory zo zložky traceblok
     if "_" not  in filename :  # ak nájde v názve súboru "_", spracuvava to inak, ako zvysne (stary sposob merania, trash?)
          if "4"  in filename:   
 
             nazov=filename.split("\\")[-1].split(".")[0][0:3] #z nazvu ziska prve 3 znaky (oznacenie stroja)
-            otacky=int(filename.split("\\")[-1].split(".")[0][3:4])
-            if  1 or otacky==3:
+            otacky=int(filename.split("\\")[-1].split(".")[0][3])
+            if  otacky==3:
                 #z =hodiny_stav[hodiny_stav["nazov"]==nazov]["hodiny"].item()
                 z =abs(df[df['nazov']==nazov]['daleko'].item()+1*df[df['nazov']==nazov]['blizko'].item())
                 #z =abs(df[df['nazov']==nazov]['blizko'].item())
@@ -68,7 +68,7 @@ for filename in glob.glob(os.path.join('traceblok/', '*.ST1')): #načíta všetk
                 norm_index=int(otacky*400/6)
                 norm=y[200]
                 
-                y=y/norm
+                #y=y/norm
                 y = list(map(str, y))
                 y.insert(0, "dnes")
                 y.insert(1, nazov)
@@ -95,6 +95,6 @@ for filename in glob.glob(os.path.join('traceblok/', '*.ST1')): #načíta všetk
 #ax.autoscale_view()
 #mplcursors.cursor(hover=True).connect("add", lambda sel: sel.annotation.set_text(datam[sel.target.index]))
 #plt.show()
-df2.to_csv ('kia40_dataframe.csv', index = False, header=True)
-
-print(df2)
+                
+df2.to_csv ('kia40_dataframe3.csv', mode='a', index = False, header=True)
+#print(df2)

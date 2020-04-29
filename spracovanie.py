@@ -43,7 +43,7 @@ def subor_priemer(nazov):
     data2 = []
     cas_merania=30
 
-    with open("traceblok/"+ nazov +".ST1", 'r') as file:
+    with open("traceblok2/"+ nazov +".ST1", 'r') as file:
         sucet1=0
         sucet2=0
         for line in file:
@@ -78,7 +78,7 @@ def subor_prud(nazov):
     t=[]
     cas_merania=30
 
-    with open("traceblok/"+ nazov +".ST1", 'r') as file:
+    with open("traceblok2/"+ nazov +".ST1", 'r') as file:
         sucet1=0
         sucet2=0
         for line in file:
@@ -110,7 +110,7 @@ def subor(nazov, dpfv, svf):
     t=[]
     cas_merania=30
 
-    with open("traceblok/"+ nazov +".ST1", 'r') as file:
+    with open("traceblok2/"+ nazov +".ST1", 'r') as file:
         sucet1=0
         sucet2=0
         for line in file:

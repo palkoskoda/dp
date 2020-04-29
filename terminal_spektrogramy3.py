@@ -27,6 +27,7 @@ podmienka1="4"
 df = pd.read_csv('hadzanie.csv', header = 0)
 hodiny_stav = pd.read_csv('hodiny_stav.csv', header = 0)
 
+
 l_z=[]
 Ppostrannych=[]
 
@@ -38,17 +39,13 @@ spodna_frekvencia2=-1
 vrchna_frekvencia2=-1
 okrem_frekvencie=[50,100]
 
-
-new_cols = ['timestamp'] + ['name'] + ['hadzanie'] + ['value_' + str(i) for i in range(1, 1001)] #stlpce do pandas
-df2 = pd.DataFrame(columns = new_cols) 
-df2_length = len(df2)
 for filename in glob.glob(os.path.join('traceblok/', '*.ST1')): #načíta všetky súbory zo zložky traceblok
     if "_" not  in filename :  # ak nájde v názve súboru "_", spracuvava to inak, ako zvysne (stary sposob merania, trash?)
          if "4"  in filename:   
 
             nazov=filename.split("\\")[-1].split(".")[0][0:3] #z nazvu ziska prve 3 znaky (oznacenie stroja)
             otacky=int(filename.split("\\")[-1].split(".")[0][3:4])
-            if  1 or otacky==3:
+            if  otacky==3:
                 #z =hodiny_stav[hodiny_stav["nazov"]==nazov]["hodiny"].item()
                 z =abs(df[df['nazov']==nazov]['daleko'].item()+1*df[df['nazov']==nazov]['blizko'].item())
                 #z =abs(df[df['nazov']==nazov]['blizko'].item())
@@ -64,20 +61,14 @@ for filename in glob.glob(os.path.join('traceblok/', '*.ST1')): #načíta všetk
 
                 y=furier(prud, t,500)
                 #g=[x for ind, x in enumerate(furier_x) if spodna_frekvencia*4 < ind < vrchna_frekvencia*4]
+                
                 #normalizacia:
                 norm_index=int(otacky*400/6)
                 norm=y[200]
-                
                 y=y/norm
-                y = list(map(str, y))
-                y.insert(0, "dnes")
-                y.insert(0, nazov)
-                y.insert(0, str(z))
-                df2.loc[df2_length] = y
                 
-                
-                #g=[x for ind, x in enumerate(y) if ((spodna_frekvencia*4/3*otacky > ind  > vrchna_frekvencia*4/3*otacky) and (spodna_frekvencia2*4/3*otacky > ind or ind > vrchna_frekvencia2*4/3*otacky))]
-                #Ppostrannych.append(sum(g))
+                g=[x for ind, x in enumerate(y) if ((spodna_frekvencia*4/3*otacky > ind  > vrchna_frekvencia*4/3*otacky) and (spodna_frekvencia2*4/3*otacky > ind or ind > vrchna_frekvencia2*4/3*otacky))]
+                Ppostrannych.append(sum(g))
                 
 
 fig, ax = plt.subplots()
@@ -95,5 +86,3 @@ ax.set_title('Prúd v určitom spektre v závislosti hádzania 3000 otáčok')
 ax.autoscale_view()
 mplcursors.cursor(hover=True).connect("add", lambda sel: sel.annotation.set_text(datam[sel.target.index]))
 plt.show()
-
-print (df2)
