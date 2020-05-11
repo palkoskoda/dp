@@ -47,7 +47,7 @@ for filename in glob.glob(os.path.join('traceblok/', '*.ST1')): #načíta všetk
             otacky=int(filename.split("\\")[-1].split(".")[0][3:4])
             if  otacky==3:
                 #z =hodiny_stav[hodiny_stav["nazov"]==nazov]["hodiny"].item()
-                z =abs(df[df['nazov']==nazov]['daleko'].item()+1*df[df['nazov']==nazov]['blizko'].item())
+                z =abs(df[df['nazov']==nazov]['daleko'].item()-1*df[df['nazov']==nazov]['blizko'].item())
                 #z =abs(df[df['nazov']==nazov]['blizko'].item())
                 
                 #while z in l_z:

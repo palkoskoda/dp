@@ -12,7 +12,7 @@ import os
 
 
 
-☺fig = plt.figure()
+fig = plt.figure()
 ax = fig.add_subplot(111, projection='3d')
 
 z=0

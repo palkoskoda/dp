@@ -27,7 +27,7 @@ def furier2 (data, t, fs):
 
 def furier (data, t, fs):
     yf = scipy.fftpack.fft(data)
-    xf = np.linspace(0.0, (1.0*fs)/(2.0), len(t)/2)
+    xf = np.linspace(0.0, int((1.0*fs)/(2.0)), int(len(t)/2))
     b=2.0/len(t) * np.abs(yf[:len(t)//2])  
     return b#, xf    
 
@@ -43,7 +43,7 @@ def subor_priemer(nazov):
     data2 = []
     cas_merania=30
 
-    with open("traceblok2/"+ nazov +".ST1", 'r') as file:
+    with open("traceblok/"+ nazov +".ST1", 'r') as file:
         sucet1=0
         sucet2=0
         for line in file:
@@ -78,7 +78,7 @@ def subor_prud(nazov):
     t=[]
     cas_merania=30
 
-    with open("traceblok2/"+ nazov +".ST1", 'r') as file:
+    with open("traceblok/"+ nazov +".ST1", 'r') as file:
         sucet1=0
         sucet2=0
         for line in file:
@@ -110,7 +110,7 @@ def subor(nazov, dpfv, svf):
     t=[]
     cas_merania=30
 
-    with open("traceblok2/"+ nazov +".ST1", 'r') as file:
+    with open("traceblok/"+ nazov +".ST1", 'r') as file:
         sucet1=0
         sucet2=0
         for line in file:
