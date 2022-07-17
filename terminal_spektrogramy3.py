@@ -45,10 +45,10 @@ for filename in glob.glob(os.path.join('traceblok/', '*.ST1')): #načíta všetk
 
             nazov=filename.split("\\")[-1].split(".")[0][0:3] #z nazvu ziska prve 3 znaky (oznacenie stroja)
             otacky=int(filename.split("\\")[-1].split(".")[0][3:4])
-            if  otacky==3:
+            if  otacky==5:
                 #z =hodiny_stav[hodiny_stav["nazov"]==nazov]["hodiny"].item()
-                z =abs(df[df['nazov']==nazov]['daleko'].item()-1*df[df['nazov']==nazov]['blizko'].item())
-                #z =abs(df[df['nazov']==nazov]['blizko'].item())
+                #z =abs(df[df['nazov']==nazov]['daleko'].item()-1*df[df['nazov']==nazov]['blizko'].item())
+                z =abs(df[df['nazov']==nazov]['daleko'].item())
                 
                 #while z in l_z:
                     #z+=0
@@ -63,13 +63,12 @@ for filename in glob.glob(os.path.join('traceblok/', '*.ST1')): #načíta všetk
                 #g=[x for ind, x in enumerate(furier_x) if spodna_frekvencia*4 < ind < vrchna_frekvencia*4]
                 
                 #normalizacia:
-                norm_index=int(otacky*400/6)
-                norm=y[200]
-                y=y/norm
-                
-                g=[x for ind, x in enumerate(y) if ((spodna_frekvencia*4/3*otacky > ind  > vrchna_frekvencia*4/3*otacky) and (spodna_frekvencia2*4/3*otacky > ind or ind > vrchna_frekvencia2*4/3*otacky))]
-                Ppostrannych.append(sum(g))
-                
+                #norm_index=int(otacky*400/6)
+                #norm=y[200]
+                #y=y/norm
+                #g=[x for ind, x in enumerate(y) if ((spodna_frekvencia*4/3*otacky > ind  > vrchna_frekvencia*4/3*otacky) and (spodna_frekvencia2*4/3*otacky > ind or ind > vrchna_frekvencia2*4/3*otacky))]
+                #Ppostrannych.append(sum(g))
+                Ppostrannych.append(hodiny_stav[hodiny_stav["nazov"]==nazov]["hodiny"].item())
 
 fig, ax = plt.subplots()
 ind = np.arange(len(Ppostrannych))
@@ -78,11 +77,13 @@ plt.bar(l_z, Ppostrannych, width, bottom=0)
 #plt.bar(ind + width, data2, width, bottom=0)
 #plt.bar(ind + 2*width, data3, width, bottom=0)
 
-ax.set_title('Prúd v určitom spektre v závislosti hádzania 3000 otáčok')
+ax.set_title('Závislosť hádzania od motohodín')
 #ax.set_xticks(ind + width / 2)
 #ax.set_xticklabels([x[:3] for x in datam])
 
 #ax.legend((p1[0], p2[0], p3[0]), ('3000', '5000',"8000"))
 ax.autoscale_view()
 mplcursors.cursor(hover=True).connect("add", lambda sel: sel.annotation.set_text(datam[sel.target.index]))
+ax.set_xlabel('hádzanie [um]')
+ax.set_ylabel('motohodiny [h]')
 plt.show()

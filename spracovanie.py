@@ -6,7 +6,7 @@ from scipy import signal
 def depeakf (data, t, fs, pocet, order):
     vykon=data
     yf = scipy.fftpack.fft(data)
-    xf = np.linspace(0.0, (1.0*fs)/(2.0), len(t)/2)
+    xf = np.linspace(0.0, (1.0*fs)/(2.0), len(t)//2)
     b=2.0/len(t) * np.abs(yf[:len(t)//2])
     a=np.argsort(b)
     j=0
@@ -132,17 +132,19 @@ def subor(nazov, dpfv, svf):
                     t.append((int(x[0])*cas_merania)/len(prud))
                 
     fs = len(prud)/cas_merania  # Sample frequency (Hz)      
-    if sucet1<sucet2:
-        vykon=prud
-        
+    #if sucet1<sucet2:
+        #vykon=prud
+
     vykon, pavg= depeakf(vykon, t, fs, dpfv, 12)
     if svf>5:
+        print(vykon)
         vykon = signal.savgol_filter(vykon, svf, 3)
     
-    return vykon[10:],t[10:], pavg, nazov
+    return vykon[10:200],t[10:200], pavg, nazov
 
 def vypis_subor(nazov):
     vykon, t, pavg, nazov =subor(nazov, dpfv, svf)
+  
     plt.plot(t, vykon, label=str(nazov)[:6]+" - "+str(round(pavg,2))+"A")
     return
 
@@ -156,8 +158,9 @@ def hlavicka(dpfv_in,svf_in):
     return
 
 def pata(otacky):
-    plt.legend(loc='center right', shadow=True, fontsize='x-large', )
+    plt.legend(loc='lower right', shadow=True, fontsize='x-large', )
     plt.title(str(otacky)+" otáčok")
     plt.xlabel("čas [s]")
-    plt.ylabel("Prúd [A]")
+    #plt.ylabel("Prúd [A]")
+    plt.ylabel("odchýlka [um]")
     return
